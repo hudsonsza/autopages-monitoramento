@@ -1,0 +1,27 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: "gotify"
+  routes:
+    - matchers:
+        - severity="critical"
+      receiver: "telegram"
+    - matchers:
+        - severity="warning"
+      receiver: "email"
+
+receivers:
+  - name: "gotify"
+    webhook_configs:
+      - url: "http://gotify/message?token=SEU_TOKEN"
+        send_resolved: true
+
+  - name: "email"
+    email_configs:
+      - to: "seu@email.com"
+        from: "alertas@seudominio.com"
+        smarthost: "smtp.seudominio.com:587"
+        auth_username: "alertas@seudominio.com"
+        auth_password: "SENHA"
+        send_resolved: true
