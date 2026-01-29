@@ -42,4 +42,4 @@ services:
     volumes:
       - ./gotify/data:/app/data
     ports:
-      - "8080:80"
+      - "9091:80"
