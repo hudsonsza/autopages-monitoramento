@@ -6,7 +6,6 @@ route:
   routes:
     - matchers:
         - severity="critical"
-      receiver: "telegram"
     - matchers:
         - severity="warning"
       receiver: "email"
